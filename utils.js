@@ -27,3 +27,18 @@ function getUrlObj(){
 	})
 	return ret;
 }
+
+//寄生组合式继承
+Function.prototype.Inherit = function(parent){
+	//非函数类型不做处理
+	if (typeof parent != 'function') return this;
+	// 对象冒充
+	Animal.call(this);
+	//创建一个没有实例方法的类
+	//这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点
+	var F=function(){}
+	F.prototype=parent.prototype;
+	this.prototype=new F();
+	// 修改指针
+	this.prototype.constructor=this;
+}
