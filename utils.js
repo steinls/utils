@@ -27,6 +27,20 @@ function getUrlObj(){
 	return ret;
 }
 
+// 拼接url
+function param(option){
+	var search = '';
+	if(option){
+		for(i in option){
+			var key = encodeURIComponent(i);
+			var value = option[i]?encodeURIComponent(option[i]):'';
+			search+='&'+key+'='+value;
+		}
+	}
+	return search?search.slice(1):'';
+}
+
+
 //寄生组合式继承
 Function.prototype.Inherit = function(parent){
 	//非函数类型不做处理
