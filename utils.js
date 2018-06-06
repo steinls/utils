@@ -30,12 +30,10 @@ function getUrlObj(){
 // 拼接url
 function param(option){
 	var search = '';
-	if(option){
-		for(i in option){
-			var key = encodeURIComponent(i);
-			var value = option[i]?encodeURIComponent(option[i]):'';
-			search+='&'+key+'='+value;
-		}
+	for(i in option){
+		var key = encodeURIComponent(i);
+		var value = option[i]?encodeURIComponent(option[i]):'';
+		search+='&'+key+'='+value;
 	}
 	return search?search.slice(1):'';
 }
