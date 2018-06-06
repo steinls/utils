@@ -1,12 +1,11 @@
 //节流函数
-function debounce(func, delay) {
-  var timer;
-  return function () {
-    timer && clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this,arguments)
-    }, delay)
-  }
+function debounce(func,delay,context) {
+	return function () {
+		func.id && clearTimeout(func.id);
+		func.id = setTimeout(() => {
+			func.apply(context,arguments)
+		}, delay)
+	}
 }
 
 //获取url中的参数
