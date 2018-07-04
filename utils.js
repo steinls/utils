@@ -40,11 +40,13 @@ function param(option){
 
 
 //寄生组合式继承
+//在子类中想要调用父类的方法可以使用
+//父类.方法.apply(this,arguments)
 Function.prototype.Inherit = function(parent){
 	//非函数类型不做处理
 	if (typeof parent != 'function') return this;
 	// 对象冒充
-	Animal.call(this);
+	parent.call(this);
 	//创建一个没有实例方法的类
 	//这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点
 	var F=function(){}
