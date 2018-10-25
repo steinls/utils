@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>param</title>
+</head>
+<body>
+	<script type="module">
+		import {param} from '../utils.js';
+
+		let obj = {
+			name: encodeURIComponent('小明'),
+			age: 20
+		};
+		console.log(param(obj));
+	</script>
+</body>
+</html>

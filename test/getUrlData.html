@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getUrlObj</title>
+</head>
+<body>
+	<script type="module">
+		import {getUrlData} from '../utils.js'
+		
+		console.log('将查询字符串转为对象');
+		console.log(getUrlData({url:'https://www.baidu.com/?tn=62095104_7_oem_dg&id=254134'}));
+		
+		console.log('\n');
+		
+		console.log('获取名为id的参数');
+		console.log(getUrlData({
+			name:'id',
+			url:'https://www.baidu.com/?tn=62095104_7_oem_dg&id=254134'
+		}));
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>deepClone</title>
+</head>
+<body>
+	<script type="module">
+		import {deepClone} from '../utils.js'
+
+		var a = {
+			name: '小明',
+			age: 18,
+			say() {
+				console.log('我叫' + this.name)
+			}
+		};
+		console.log(a);
+		a.say();
+
+		var b = deepClone(a);
+		console.log(b)
+		b.name = '小环';
+		b.say();
+	</script>
+</body>
+</html>
