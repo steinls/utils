@@ -126,3 +126,16 @@ Function.prototype.Inherit = function(parent){
 	// 修改指针
 	this.prototype.constructor=this;
 }
+
+/**
+ * 去除json对象里的换行符
+ * @param  {String} str 待处理字符串
+ * @return {Obejct}     处理好的对象
+ */
+function decodeUnicode(str) {  
+  str = str.replace(/\\/g, "%");
+  str = unescape(str);
+  str = str.replace(/%/g, "\\");
+  str = str.replace(/\\/g, "");
+  return JSON.parse(str);
+}
